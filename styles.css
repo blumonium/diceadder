@@ -1,6 +1,7 @@
 html {
   height: 100%;
   background-color: #000000;
+  color: #ffffff;
 }
 
 body {
@@ -25,4 +26,16 @@ body {
 
 .calc-button:active {
   background: #444444;
+}
+
+.clear-button {
+  padding: 16px;
+  font-size: 16pt;
+  background-color: #222222;
+}
+
+#total {
+  font-size: 58pt;
+  margin: 0 32px;
+  text-align: right;
 }
