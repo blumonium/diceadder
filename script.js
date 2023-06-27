@@ -1,5 +1,6 @@
 let history = [];
 const total = document.getElementById("total");
+const historyElement = document.getElementById("history");
 
 function updateTotal() {
     let runningTotal;
@@ -9,6 +10,13 @@ function updateTotal() {
         runningTotal = history.reduce((acc, val) => acc + val);
     }
     total.innerHTML = runningTotal.toString();
+    
+    historyElement.replaceChildren(...history.map(e => {
+        let newHist = document.createElement('span'):
+        newHist.innerHTML = e.toString();
+        newHist.className = "historyTile";
+        return newHist;
+    }));
 }
 
 function onPress(num) {
