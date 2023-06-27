@@ -14,3 +14,11 @@ body {
   border-radius: 0;
   padding: 32px;
 }
+
+.calc-button:hover {
+  background: #e6e6e6;
+}
+
+.calc-button:active {
+  background: #cccccc;
+}
