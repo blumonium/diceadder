@@ -5,7 +5,7 @@ const historyElement = document.getElementById("history");
 
 function newHistElement(num) {
     let newHist = document.createElement('span');
-    newHist.innerHTML = e.toString();
+    newHist.innerHTML = num.toString();
     newHist.className = "historyTile";
     return newHist;
 }
@@ -23,7 +23,7 @@ function back() {
         let oldNum = history.pop();
         runningTotal -= oldNum;
         total.innerHTML = runningTotal.toString();
-        historyElement.removeElement(historyElement.lastElementChild);
+        historyElement.removeChild(historyElement.lastElementChild);
     }
 }
 
@@ -32,4 +32,8 @@ function clears() {
     runningTotal = 0;
     total.innerHTML = "0";
     historyElement.innerHTML = "";
+}
+
+document.ontouchmove = function (e) {
+    e.preventDefault();
 }
