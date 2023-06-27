@@ -45,3 +45,10 @@ body {
   margin: 0 32px;
   text-align: right;
 }
+
+#history {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
