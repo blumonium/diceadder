@@ -1,37 +1,35 @@
 let history = [];
+let runningTotal = 0;
 const total = document.getElementById("total");
 const historyElement = document.getElementById("history");
 
-function updateTotal() {
-    let runningTotal;
-    if (history.length === 0) {
-        runningTotal = 0;
-    } else {
-        runningTotal = history.reduce((acc, val) => acc + val);
-    }
-    total.innerHTML = runningTotal.toString();
-    
-    historyElement.replaceChildren(...history.map(e => {
-        let newHist = document.createElement('span');
-        newHist.innerHTML = e.toString();
-        newHist.className = "historyTile";
-        return newHist;
-    }));
+function newHistElement(num) {
+    let newHist = document.createElement('span');
+    newHist.innerHTML = e.toString();
+    newHist.className = "historyTile";
+    return newHist;
 }
 
 function onPress(num) {
     history.push(num);
-    updateTotal();
+    runningTotal += num;
+    total.innerHTML = runningTotal.toString();
+    const newHist = newHistElement(num);
+    historyElement.appendChild(newHist);
 }
 
 function back() {
     if (history.length > 0) {
-        history.pop();
-        updateTotal();
+        let oldNum = history.pop();
+        runningTotal -= oldNum;
+        total.innerHTML = runningTotal.toString();
+        historyElement.removeElement(historyElement.lastElementChild);
     }
 }
 
 function clears() {
     history = [];
-    updateTotal();
+    runningTotal = 0;
+    total.innerHTML = "0";
+    historyElement.innerHTML = "";
 }
