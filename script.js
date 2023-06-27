@@ -12,7 +12,7 @@ function updateTotal() {
     total.innerHTML = runningTotal.toString();
     
     historyElement.replaceChildren(...history.map(e => {
-        let newHist = document.createElement('span'):
+        let newHist = document.createElement('span');
         newHist.innerHTML = e.toString();
         newHist.className = "historyTile";
         return newHist;
