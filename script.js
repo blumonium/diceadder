@@ -34,6 +34,7 @@ function clears() {
     historyElement.innerHTML = "";
 }
 
-document.ontouchmove = function (e) {
+window.addEventListener("scroll", (e) => {
     e.preventDefault();
-}
+    window.scrollTo(0, 0);
+});
